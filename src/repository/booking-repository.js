@@ -13,16 +13,36 @@ class BookingRepository {
         throw new validationError(error);
       }
       throw new AppError(
-        'Repository Error',
+        'RepositoryError',
         'Cant create Booking',
         'There was some issue while creating booking please try again later',
         StatusCodes.INTERNAL_SERVER_ERROR
       );
     }
   }
-  async update(data) {
+
+  async update(bookingId, data) {
     try {
-    } catch (error) {}
+      const booking = await Booking.findByPk(bookingId);
+      if (data.status) {
+        booking.status = data.status;
+      }
+      await booking.save();
+      return booking;
+      // await Booking.update(data, {
+      //   where: {
+      //     id: bookingId,
+      //   },
+      // });
+      // return true;
+    } catch (error) {
+      throw new AppError(
+        'RepositoryError',
+        'Cant update Booking',
+        'There was some issue while updating booking please try again later',
+        StatusCodes.INTERNAL_SERVER_ERROR
+      );
+    }
   }
 }
 
