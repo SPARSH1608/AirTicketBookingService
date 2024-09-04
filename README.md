@@ -27,3 +27,13 @@ POST /bookings: Create a new booking.
 The service ensures that all bookings are validated against flight availability and user authentication.
 ## Notes
 Payment Handling is currently implemented as a dummy service but can be extended with 3rd party payment gateways.
+
+# Other Services Links
+
+[FlightSearchService](https://github.com/SPARSH1608/flightandSearchService)
+
+[AirTicketBookingService](https://github.com/SPARSH1608/AirTicketBookingService)
+
+[AuthService](https://github.com/SPARSH1608/Auth_service)
+
+[ReminderService](https://github.com/SPARSH1608/ReminderService)
